@@ -6,10 +6,7 @@ header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
 // Require Coppermine config file
-require_once '../include/config.inc.php';
-
-// Your gallery domain
-$domain = 'https://yourdomain.com/gallery';
+require_once '../../include/config.inc.php';
 
 // Connect to the server
 $db_connection = new mysqli(
