@@ -1,9 +1,8 @@
 <?php
-// DB Connection and variables
+// DB Connection
 require_once '../db-connection.php';
-
-// Get limit query
-$limit = $_GET['limit'];
+// CPG Variables
+require_once '../cpg-variables.php';
 
 // Query albums & pictures tables
 $albums_pictures_query = $db_connection->prepare(
@@ -36,7 +35,7 @@ while ($row = $result->fetch_assoc()) {
 	$albums[] = $album_data;
 }
 
-// Append each album to the main object
+// Append each album to the main JSON Array
 $output['albums'] = $albums;
 $output['domain'] = $domain;
 
