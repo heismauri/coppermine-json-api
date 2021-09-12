@@ -8,6 +8,8 @@ require_once '../cpg-variables.php';
 $albums_pictures_query = $db_connection->prepare(
 	'SELECT p.aid, a.title FROM ' . $pictures_table . ' p
 	JOIN ' . $albums_table . ' a ON p.aid = a.aid
+	WHERE visibility = 0
+	AND approved = "YES"
 	GROUP BY p.aid
 	ORDER BY MAX(ctime) DESC
 	LIMIT ?'
@@ -23,8 +25,9 @@ while ($row = $result->fetch_assoc()) {
 	$thumb_query = $db_connection->query(
 		'SELECT * FROM ' . $pictures_table . '
 		WHERE aid = ' . $album_id . '
-		ORDER BY ctime
-		DESC LIMIT 1'
+		AND approved = "YES"
+		ORDER BY ctime DESC
+		LIMIT 1'
 	);
 	$thumb_row = $thumb_query->fetch_array();
 	$album_data = array();

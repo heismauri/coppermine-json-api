@@ -8,6 +8,8 @@ require_once '../cpg-variables.php';
 $albums_pictures_query = $db_connection->prepare(
 	'SELECT p.filename, p.filepath, p.aid, p.pid, a.title FROM ' . $pictures_table . ' p
 	JOIN ' . $albums_table . ' a ON p.aid = a.aid
+	WHERE visibility = 0
+	AND approved = "YES"
 	ORDER BY ctime DESC
 	LIMIT ?'
 );
