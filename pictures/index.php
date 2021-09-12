@@ -19,9 +19,9 @@ $result = $albums_pictures_query->get_result();
 while ($row = $result->fetch_assoc()) {
 	$picture_data = array();
 	$picture_data['id'] = (int)$row['pid'];
-	$picture_data['album_id'] = $row['aid'];
-	$picture_data['title'] = $row['title'];
+	$picture_data['album_title'] = $row['title'];
 	$picture_data['thumbnail'] = 'albums/' . $row['filepath'] . 'thumb_' . $row['filename'];
+	$picture_data['url'] = 'displayimage.php?album=' . $row['aid'] . '&pid=' . $row['pid'];
 	// Append each album to an array
 	$pictures[] = $picture_data;
 }

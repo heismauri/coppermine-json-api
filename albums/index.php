@@ -31,6 +31,7 @@ while ($row = $result->fetch_assoc()) {
 	$album_data['id'] = $album_id;
 	$album_data['title'] = $row['title'];
 	$album_data['thumbnail'] = 'albums/' . $thumb_row['filepath'] . 'thumb_' . $thumb_row['filename'];
+	$album_data['url'] = 'thumbnails.php?album=' . $album_id;
 	// Append each album to an array
 	$albums[] = $album_data;
 }

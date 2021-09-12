@@ -11,7 +11,7 @@ fetch(`https://arianagrandechile.com/galeria/api/albums/?limit=${limit}`)
                           </a>
 		                      <div class="cpg-body">
                             <h5 class="cpg-title">
-			                        <a href="${data.domain}thumbnails.php?album=${album.id}" rel="nofollow">${album.title}</a>
+			                        <a href="${data.domain}${album.url}" rel="nofollow">${album.title}</a>
 		                        </h5>
                           </div>
 	                      </div>`
