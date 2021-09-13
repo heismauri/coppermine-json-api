@@ -18,5 +18,6 @@ $limit = $_GET['limit'];
 
 // Initialize the main JSON Array
 $output = array();
+$output['domain'] = substr_replace($domain, "", -1);;
 
 // EOF

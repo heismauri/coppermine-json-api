@@ -31,17 +31,16 @@ while ($row = $result->fetch_assoc()) {
 	);
 	$thumb_row = $thumb_query->fetch_array();
 	$album_data = array();
-	$album_data['id'] = $album_id;
+	$album_data['id'] = (int)$album_id;
 	$album_data['title'] = $row['title'];
-	$album_data['thumbnail'] = 'albums/' . $thumb_row['filepath'] . 'thumb_' . $thumb_row['filename'];
-	$album_data['url'] = 'thumbnails.php?album=' . $album_id;
+	$album_data['thumbnail'] = '/albums/' . $thumb_row['filepath'] . 'thumb_' . $thumb_row['filename'];
+	$album_data['url'] = '/thumbnails.php?album=' . $album_id;
 	// Append each album to an array
 	$albums[] = $album_data;
 }
 
-// Append each album to the main JSON Array
+// Append all albums to the main JSON Array
 $output['albums'] = $albums;
-$output['domain'] = $domain;
 
 // Close the connection
 $result->free_result();

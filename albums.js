@@ -3,10 +3,11 @@ const limit = galleryArea.dataset.limit;
 
 fetch(`https://arianagrandechile.com/galeria/api/albums/?limit=${limit}`)
   .then(response => response.json())
+  // .then(response => console.log(response))
   .then((data) => {
     data.albums.forEach((album) => {
       const albumCard = `<div class="cpg-card album-${album.id}">
-                          <a href="${data.domain}thumbnails.php?album=${album.id}" rel="nofollow">
+                          <a href="${data.domain}${album.url}" rel="nofollow">
 		                        <img class="cpg-thumbnail" src="${data.domain}${album.thumbnail}" alt="${album.title} thumbnail" title="${album.title}">
                           </a>
 		                      <div class="cpg-body">
