@@ -17,23 +17,12 @@ $albums_pictures_query->bind_param('i', $limit);
 $albums_pictures_query->execute();
 $result = $albums_pictures_query->get_result();
 
-// Process each result
-while ($row = $result->fetch_assoc()) {
-	$picture_data = array();
-	$picture_data['id'] = (int)$row['pid'];
-	$picture_data['album_title'] = $row['title'];
-	$picture_data['thumbnail'] = '/albums/' . $row['filepath'] . 'thumb_' . $row['filename'];
-	$picture_data['url'] = '/displayimage.php?album=' . $row['aid'] . '&pid=' . $row['pid'];
-	// Append each picture to an array
-	$pictures[] = $picture_data;
-}
-
-// Append all pictures to the main JSON Array
-$output['pictures'] = $pictures;
+// Build pictures' JSON
+include 'picture-builder.php';
 
 // Close the connection
-$result->free_result();
 $db_connection->close();
+$result->free_result();
 
 // Print the results
 echo json_encode($output);
