@@ -1,9 +1,36 @@
 <style>
-  .cpg-card {
-    display: inline;
+  body {
+    width: 1050px;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  #gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 16px;
+    padding: 16px;
+  }
+  .cpg-card a {
+    display: inline-block;
+    transition: all 0.4s ease-in-out;
+  }
+  .cpg-card a:hover {
+    opacity: 0.6;
+  }
+  .cpg-card .cpg-thumbnail {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #e1e1e1;
+    box-shadow: 0 0 9px #e1e1e1;
   }
 </style>
 <!-- HTML test file and example -->
-<div id="gallery" data-limit="14"></div>
+<script type="text/javascript">
+  const galleryAPI = "https://yourgallery.url/api";
+</script>
+<div id="gallery" data-limit="24"></div>
 <script src="albums.js"></script>
-<script src="pisctures.js"></script>
+<!-- <script src="pictures.js"></script> -->

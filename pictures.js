@@ -1,7 +1,7 @@
 const galleryArea = document.getElementById('gallery');
 const limit = galleryArea.dataset.limit;
 
-fetch(`https://arianagrandechile.com/galeria/api/pictures/?limit=${limit}`)
+fetch(`${galleryAPI}/pictures/?limit=${limit}`)
   .then(response => response.json())
   .then((data) => {
     data.pictures.forEach((picture) => {
