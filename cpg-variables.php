@@ -14,7 +14,7 @@ $domain_query = $db_connection->query(
 $domain = $domain_query->fetch_assoc()['value'];
 
 // Get limit query
-$limit = $_GET['limit'];
+$limit = (isset($_GET['limit']) ? $_GET['limit'] : 8);
 
 // Initialize the main JSON Array
 $output = array();
