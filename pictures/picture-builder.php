@@ -3,6 +3,7 @@
 while ($row = $result->fetch_assoc()) {
 	$picture_data = array();
 	$picture_data['id'] = (int)$row['pid'];
+	$picture_data['name']= $row['filename'];
 	if (isset($main_category)) {
 		$output['path'] = '/thumbnails.php?album=' . $row['aid'];
 		$output['title'] = $row['title'];
