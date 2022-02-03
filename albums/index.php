@@ -6,7 +6,7 @@ require_once '../cpg-variables.php';
 
 // Query albums & pictures tables
 $albums_pictures_query = $db_connection->prepare(
-	'SELECT p.aid, a.title FROM ' . $pictures_table . ' p
+	'SELECT p.aid, a.title, a.thumb FROM ' . $pictures_table . ' p
 	JOIN ' . $albums_table . ' a ON p.aid = a.aid
 	WHERE visibility = 0
 	AND approved = "YES"
