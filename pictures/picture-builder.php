@@ -13,6 +13,9 @@ while ($row = $result->fetch_assoc()) {
 	}
 	$picture_data['thumbnail_path'] = "/albums/{$row['filepath']}thumb_{$row['filename']}";
 	$picture_data['path'] = "/displayimage.php?album={$row['aid']}&pid={$row['pid']}";
+	if ($is_categories_set && !isset($main_category)) {
+		$picture_data['category_id'] = (int)$row['category'];
+	}
 	// Append each picture to an array
 	$pictures[] = $picture_data;
 }

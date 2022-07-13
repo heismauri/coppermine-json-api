@@ -16,7 +16,7 @@ $db_connection = new mysqli(
 );
 // Check if there was any error while connecting to the server
 if ($db_connection->connect_error) {
-	die('Connection failed: ' . $db_connection->connect_error);
+	die("Connection failed: {$db_connection->connect_error}");
 }
 
 // Select Coppermine's database

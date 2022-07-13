@@ -17,7 +17,7 @@ $albums_pictures_query = $db_connection->prepare(
 	ORDER BY ctime DESC
 	LIMIT ?"
 );
-$albums_pictures_query->bind_param('ii', $album_id, $limit);
+$albums_pictures_query->bind_param('ii', $album_id, $limit_param);
 $albums_pictures_query->execute();
 $result = $albums_pictures_query->get_result();
 $main_category = 0;

@@ -1,7 +1,7 @@
 const galleryArea = document.getElementById('gallery');
-const limit = galleryArea.dataset.limit;
+const galleryDataset = galleryArea.dataset;
 
-fetch(`${galleryAPI}/pictures/?limit=${limit}`)
+fetch(`${galleryAPI}/pictures/?limit=${galleryDataset.limit}`)
   .then((response) => response.json())
   .then((data) => {
     data.pictures.forEach((picture) => {

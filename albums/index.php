@@ -10,11 +10,12 @@ $albums_pictures_query = $db_connection->prepare(
 	JOIN {$albums_table} a ON p.aid = a.aid
 	WHERE visibility = 0
 	AND approved = 'YES'
+	AND category {$categories_param}
 	GROUP BY p.aid
 	ORDER BY MAX(ctime) DESC
 	LIMIT ?"
 );
-$albums_pictures_query->bind_param('i', $limit);
+$albums_pictures_query->bind_param('i', $limit_param);
 $albums_pictures_query->execute();
 $result = $albums_pictures_query->get_result();
 
