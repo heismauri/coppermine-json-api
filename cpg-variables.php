@@ -7,9 +7,9 @@ $categories_table = $CONFIG['TABLE_PREFIX'] . 'categories';
 
 // Get gallery domain
 $domain_query = $db_connection->query(
-	'SELECT * FROM ' . $config_table . '
-	WHERE name = "ecards_more_pic_target"
-	LIMIT 1'
+	"SELECT * FROM {$config_table}
+	WHERE name = 'ecards_more_pic_target'
+	LIMIT 1"
 );
 $domain = $domain_query->fetch_assoc()['value'];
 

@@ -9,13 +9,13 @@ $album_id = $_GET['id'];
 
 // Query albums & pictures tables
 $albums_pictures_query = $db_connection->prepare(
-	'SELECT p.filename, p.filepath, p.aid, p.pid, a.title, a.category FROM ' . $pictures_table . ' p
-	JOIN ' . $albums_table . ' a ON p.aid = a.aid
+	"SELECT p.filename, p.filepath, p.aid, p.pid, a.title, a.category FROM {$pictures_table} p
+	JOIN {$albums_table} a ON p.aid = a.aid
 	WHERE p.aid = ?
 	AND visibility = 0
-	AND approved = "YES"
+	AND approved = 'YES'
 	ORDER BY ctime DESC
-	LIMIT ?'
+	LIMIT ?"
 );
 $albums_pictures_query->bind_param('ii', $album_id, $limit);
 $albums_pictures_query->execute();
