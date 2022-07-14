@@ -10,7 +10,7 @@ while ($row = $result->fetch_assoc()) {
 	$album_data['title'] = $row['title'];
 	$album_data['thumbnail_path'] = "/albums/{$thumb_row['filepath']}thumb_{$thumb_row['filename']}";
 	$album_data['path'] = "/thumbnails.php?album={$album_id}";
-	if ($is_categories_set) {
+	if ($is_category_ids_set) {
 		$album_data['category_id'] = (int)$row['category'];
 	}
 	// Append each album to an array

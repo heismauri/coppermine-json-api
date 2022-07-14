@@ -1,4 +1,6 @@
 <?php
+// API Variables
+require_once '../api-variables.php';
 // DB Connection
 require_once '../db-connection.php';
 // CPG Variables
@@ -10,7 +12,7 @@ $albums_pictures_query = $db_connection->prepare(
 	JOIN {$albums_table} a ON p.aid = a.aid
 	WHERE visibility = 0
 	AND approved = 'YES'
-	AND category {$categories_param}
+	AND category {$category_ids_param}
 	GROUP BY p.aid
 	ORDER BY MAX(ctime) DESC
 	LIMIT ?"

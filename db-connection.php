@@ -1,10 +1,4 @@
 <?php
-// Allow access from other websites, not needed if only used on the main site
-header('Access-Control-Allow-Origin: *');
-
-// Display the content as JSON
-header('Content-Type: application/json');
-
 // Require Coppermine config file
 require_once '../../include/config.inc.php';
 
